@@ -1,0 +1,8 @@
+- name: Install some pkg with AWX
+  hosts: all
+  tasks:
+    - name: Start the install
+      apt : pkg={{ item }} state=present
+      with_items:
+      - vim
+      - qemu-guest-agent
