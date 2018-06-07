@@ -2,7 +2,7 @@
         - all
   tasks:
         - name: "Instaling VIM"
-          apt: pkg=vim state=present
+          apt: pkg=vim state=absent
         - name: "Instaling Zabbix-agent"
           apt: pkg=zabbix-agent state=present
 
