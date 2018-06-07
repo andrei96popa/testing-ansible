@@ -1,0 +1,10 @@
+- name: "Instaling VIM"                                       
+  apt: pkg=vim state=present                                                                       
+- name: "Instaling Zabbix-agent"
+  apt: pkg=zabbix-agent state=present
+
+- name: "Instaling qemu-guest-agent"
+  apt: pkg=qemu-guest-agent state=present
+
+- name: "Instaling GIT"
+  apt: pkg=git state=present
