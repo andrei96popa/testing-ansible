@@ -11,3 +11,6 @@
 
         - name: "Instaling GIT"
           apt: pkg=git state=present
+          
+        - name: "Test shell command"
+          shell: hostname -I
