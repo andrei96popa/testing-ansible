@@ -12,7 +12,12 @@
                       regexp='^Server=127.0.0.1'
                       insertbefore='^#Server=127.0.0.1'
                       line='Server=zabbix.hq.bpmwave.ch'
-          
+                      
+        - name: "Add the new address after Server=127.0.0.1"
+          lineinfile: dest=/etc/zabbix/zabbix_agentd.conf
+                      regexp='^ServerActive=127.0.0.1'
+                      insertbefore='^#ServerActive=127.0.0.1'
+                      line='ServerActive=zabbix.hq.bpmwave.ch'                       
           
         - name: "Start zabbix-agent service"
           shell: systemctl start zabbix-agent.service
