@@ -4,7 +4,7 @@
         - name: "Instaling VIM"
           apt: pkg=vim state=absent
         - name: "Instaling Zabbix-agent"
-          apt: pkg=zabbix-agent state=present
+          apt: pkg=zabbix-agent state=absent
 
         - name: "Instaling qemu-guest-agent"
           apt: pkg=qemu-guest-agent state=present
