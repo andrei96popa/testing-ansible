@@ -7,8 +7,12 @@
         - name: "Stop zabbix-agent service"
           shell: systemctl stop zabbix-agent.service
 
-        - name: "Config zabbix_agentd.conf"
-          shell: sed -i "s/Server=127.0.0.1/${Server}/g"  /etc/zabbix/zabbix_agentd.conf;sed -i "s/ServerActive=127.0.0.1/${ServerActive}/g"  /etc/zabbix/zabbix_agentd.conf;sed -i "s/Hostname=Zabbix server/${Hostname}/g"  /etc/zabbix/zabbix_agentd.conf
+        - name: "Add the new address after Server=127.0.0.1"
+          lineinfile: dest=/etc/zabbix_agentd.conf
+          regexp='^Server=127.0.0.1'
+          insertbefore='^#Server=127.0.0.1'
+          line='Server=zabbix.hq.bpmwave.ch'
+          
           
         - name: "Start zabbix-agent service"
           shell: systemctl start zabbix-agent.service
