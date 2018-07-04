@@ -8,7 +8,7 @@
           shell: systemctl stop zabbix-agent.service
 
         - name: "Add the new address after Server=127.0.0.1"
-          lineinfile: dest=/etc/zabbix_agentd.conf
+          lineinfile: dest=/etc/zabbix/zabbix_agentd.conf
                       regexp='^Server=127.0.0.1'
                       insertbefore='^#Server=127.0.0.1'
                       line='Server=zabbix.hq.bpmwave.ch'
