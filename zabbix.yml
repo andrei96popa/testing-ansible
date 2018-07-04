@@ -1,0 +1,15 @@
+- hosts:
+        - all
+  tasks:
+        - name: "Instaling Zabbix-agent"
+          apt: pkg=zabbix-agent state=present
+
+        - name: "Stop zabbix-agent service"
+          shell: systemctl stop zabbix-agent.service
+
+        - name: "Config zabbix_agentd.conf"
+          shell: sed -i "s/Server=127.0.0.1/${Server}/g"  /etc/zabbix/zabbix_agentd.conf;sed -i "s/ServerActive=127.0.0.1/${ServerActive}/g"  /etc/zabbix/zabbix_agentd.conf;sed -i "s/Hostname=Zabbix server/${Hostname}/g"  /etc/zabbix/zabbix_agentd.conf
+          
+        - name: "Start zabbix-agent service"
+          shell: systemctl start zabbix-agent.service
+        
