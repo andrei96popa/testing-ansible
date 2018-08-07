@@ -1,0 +1,7 @@
+- proxmox_kvm:
+    api_user    : root@pam
+    api_password: secret
+    api_host    : helldorado
+    name        : spynal
+    node        : sabrewulf
+    vmid        : 100
